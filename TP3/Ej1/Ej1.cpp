@@ -2,7 +2,7 @@
 sus elementos. Use la librería conio.h, y la función getch(). */
 #include <iostream>
 #include <conio.h>  //Libreria para la funcion getch()
-#include <stdlib.h>    //Libreria para generar numeros aleatorios
+#include <stdlib.h>   //Libreria para generar numeros aleatorios
 #include <ctime>    //Libreria time
 
 using namespace std;
@@ -22,5 +22,5 @@ int main(){
     cout<<endl;
     cout<<"La suma del vector es: "<<suma<<endl;
     getch();    //Espera que el usuario ingrese una tecla para cerrar la consola
-
+    return 0;
 }
