@@ -6,7 +6,24 @@ Use getline para los char[]. */
 using namespace std;
 
 struct Profesor{
-string nombre, cargo, matria;
+string nombre, cargo, materia;
 int cargaHoraria;
-
 };
+
+
+struct Profesor p1={"Cristina","Titular","Gestion de datos", 20};
+struct Profesor p2={"Fabiana", "Jefa de TP", "Matematica", 15};
+
+int main(){
+
+cout<<"Mostramos los profesores"<<endl;
+cout<<"Nombre: "<<p1.nombre<<", Cargo: "<<p1.cargo<<", Materia: "<<p1.materia<<", Carga Horaria: "<<p1.cargaHoraria<<" hs. "<<endl;
+cout<<"Nombre: "<<p2.nombre<<", Cargo: "<<p2.cargo<<", Materia: "<<p2.materia<<", Carga Horaria: "<<p2.cargaHoraria<<" hs. "<<endl;
+cout<<endl;
+
+
+
+system("pause");
+return 0;
+
+}

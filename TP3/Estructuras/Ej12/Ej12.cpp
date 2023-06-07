@@ -3,7 +3,7 @@ tipo lógico que indica si la persona tiene algún tipo de discapacidad. Realice u
 uno que contenga las personas que no tienen ninguna discapacidad y otro que contenga las personas con discapacidad.*/
 
 #include <iostream>
-#include <string>
+//#include <string>
 #include <vector>
 using namespace std;
 
