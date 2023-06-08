@@ -27,6 +27,12 @@ int main(){
     Fecha FC={12,12,1993};  //Fecha de cumpleaños
     time_t tiempoActual=time(nullptr);
 
+     // Convertir el tiempo actual a una estructura tm local
+    std::tm* fechaActual = std::localtime(&tiempoActual);
+     // Extraer los componentes de la fecha actual
+    int anio1 = fechaActual->tm_year + 1900; // Añadir 1900 al año
+    int mes1 = fechaActual->tm_mon + 1; // Añadir 1 al mes
+    int dia1 = fechaActual->tm_mday;
 
     //Comprobamos si es el cumpleaños
 
@@ -35,7 +41,7 @@ int main(){
     //Mostrar mensaje
     felicidades(esCumple);
 
-    cout<<tiempoActual<<endl;
+    cout << "Fecha actual: " << dia1 << "/" << mes1 << "/" << anio1 <<endl;
     system("pause");
     return 0;
 }
