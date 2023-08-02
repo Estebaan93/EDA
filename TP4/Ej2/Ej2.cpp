@@ -15,7 +15,7 @@ return (FechaActual.dia==FechaCumple.dia && FechaActual.mes==FechaCumple.mes);  
 
 void felicidades(bool esCumple){
     if(esCumple){
-        cout<<"FELIZ CUMPLEAÑOS!"<<endl;
+        cout<<"FELIZ CUMPLEANIOS!"<<endl;
     }else{
         cout<<"Hoy no es tu cumple"<<endl;
     }
