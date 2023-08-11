@@ -7,6 +7,7 @@ C) Como se baja un renglón al mostrar algo por pantalla, nombre alternativas. */
 #include <iostream>
 #include <string>
 #include <fstream>
+#include <stdio.h>  //Otra entrada
 using namespace std;
 
 int	main(){

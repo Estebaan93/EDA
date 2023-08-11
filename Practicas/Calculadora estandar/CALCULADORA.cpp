@@ -1,4 +1,4 @@
-/*CALCULADORA*/
+/*CALCULADORA ESTANDAR*/
 #include <iostream>
 #include <cmath>
 using namespace std;
@@ -8,13 +8,10 @@ double n1,n2,r,raiz;
 int opc;
 bool salir;
 
-
 cout<<"INGRESE UN NUMERO A:"<<endl;
 cin>>n1;
 cout<<"INGRESE UN NUMERO B:"<<endl;
 cin>>n2;
-
-
 
 do {
 cout<<"ELIJA UNA OPCION:"<<endl;;
