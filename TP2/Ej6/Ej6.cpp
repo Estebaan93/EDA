@@ -11,8 +11,8 @@ int main(){
 	cin>>y;
 	cout<<"ELEVAMOS "<<x<<"^"<<y<<endl;
 	for(int i=0; i<y; i++){
-	acumulador*=x;
-	}	
+	acumulador*=x;  //Por cada vuelta se multiplica por x
+	}
 	cout<<acumulador<<endl;
 	system("pause");
 	return 0;
