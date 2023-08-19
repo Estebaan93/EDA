@@ -57,7 +57,7 @@ sleep(2);
         }
         cout<<endl;
     }
-
+cout<<endl;
 system("pause");
 return 0;
 }

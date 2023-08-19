@@ -3,7 +3,7 @@
 
 #include <iostream>
 #include <ctime>    //Libreria para generar numeros aleatorios en tiempo real
-#include <stdlib.h> //Genera numeros aleatorios
+//#include <stdlib.h> //Genera numeros aleatorios
 #include <random>   //Me genera un max y min de random
 #include <vector> //Para realizar operaciones entre vectores
 using namespace std;
@@ -22,8 +22,8 @@ for(int i=0;i<20;i++){
     }
 }
 
-vectorP[pos];
-vectorN[neg];
+int vectorP[pos];
+int vectorN[neg];
 
 cout<<"IMPRIMIMOS"<<endl;
 for(int i=0;i<20;i++){
