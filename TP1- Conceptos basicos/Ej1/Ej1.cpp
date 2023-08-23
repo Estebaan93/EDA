@@ -1,9 +1,9 @@
 /*Ejercicio 1:
 A) Haga un programa que permita la entrada de datos, ingresando el nombre y
-apellido del usuario, además debe mostrar el nombre_completo por pantalla.
+apellido del usuario, ademï¿½s debe mostrar el nombre_completo por pantalla.
  (considera los espacios)
-B) Ejemplifique, como se coloca un comentario de una o varias líneas.
-C) Como se baja un renglón al mostrar algo por pantalla, nombre alternativas. */
+B) Ejemplifique, como se coloca un comentario de una o varias lï¿½neas.
+C) Como se baja un renglï¿½n al mostrar algo por pantalla, nombre alternativas. */
 #include <iostream>
 //#include <string>
 //#include <fstream>
@@ -25,8 +25,8 @@ int	main(){
 	cout<<"de linea";
 	cout<<"\nOtra forma de dar un salto es"<<endl;
 	cout<<"De esta manera"<<endl;
-	system ("pause");
 
+	system ("pause");
 	return 0;
 
 }

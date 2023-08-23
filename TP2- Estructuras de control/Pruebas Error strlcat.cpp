@@ -1,4 +1,4 @@
-#include <iostrem>
+#include <iostream>
 #include <string.h>
 #include TAMANIO 10;
 
