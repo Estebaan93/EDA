@@ -23,7 +23,7 @@ int main (){
         cout<<endl;
     }
     cout<<endl;
-    cout<<"Imprimimos la matriz trasnpuesta:"<<endl;
+    cout<<"Imprimimos la matriz transpuesta:"<<endl;
     for(int i=0; i<3; i++){
         for(int j=0; j<3; j++){
             cout<<"["<<mOriginal[j][i]<<"]";

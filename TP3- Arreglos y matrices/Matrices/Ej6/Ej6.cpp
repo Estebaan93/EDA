@@ -39,7 +39,7 @@ int main (){
         }
     }
     cout<<endl;
-     cout<<"Imprimimos la matriz que cntiene m1 + m2:"<<endl;
+     cout<<"Imprimimos la matriz que contiene m1 + m2:"<<endl;
     for(int i=0; i<3; i++){
         for(int j=0; j<3; j++){
             cout<<"["<<mSuma[i][j]<<"]";

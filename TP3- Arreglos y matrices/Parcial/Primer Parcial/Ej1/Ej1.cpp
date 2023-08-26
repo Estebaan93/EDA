@@ -30,7 +30,7 @@ int main(){
     char concatenadas[40];
 
     cout<<"Ingrese la cadena 1:"<<endl;
-    cin.getline(cadena1, 20);
+    cin.getline(cadena1, 20, '\n');
     cout<<"Ingrese la cadena 2:"<<endl;
     cin.getline(cadena2, 20);
     cout<<endl;

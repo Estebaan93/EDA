@@ -40,8 +40,9 @@ int main(){
 
     //Mostrar mensaje
     felicidades(esCumple);
-
-    cout << "Fecha actual: " << dia1 << "/" << mes1 << "/" << anio1 <<endl;
+    cout<<endl;
+    cout<<"Fecha actual: "<<dia1<<"/"<<mes1<<"/"<<anio1<<endl;
+    cout<<endl;
     system("pause");
     return 0;
 }
