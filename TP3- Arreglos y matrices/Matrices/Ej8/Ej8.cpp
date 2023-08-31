@@ -2,15 +2,15 @@
 
 #include <iostream>
 #include <ctime>
-#include <stdint.h>
+//#include <stdint.h>
 //#include <windows.h>
 //#define sleep(x) Sleep(x*1000)
 using namespace std;
 
 int main (){
-    srand(time(NULL));//Semilla para generar numeros aleatorios en tiempo real
-    int m1[3][3]={{1, 1, 1},{1, 1, 1},{1, 1, 1}};
-    int m2[3][3]={{1, 1, 1},{1, 1, 1},{1, 1, 1}};
+    /*srand(time(NULL));//Semilla para generar numeros aleatorios en tiempo real*/
+    int m1[3][3]={{2, 1, 2},{2, 1, 8},{5, 0, 3}};
+    int m2[3][3]={{2, 0, 2},{3, 9, 1},{1, 6, 3}};
     int produ[3][3];//Matriz que me va mostrar el producto de ambas
     cout<<"LLENAMOS AMBAS MATRICES:"<<endl;
     //sleep(2);

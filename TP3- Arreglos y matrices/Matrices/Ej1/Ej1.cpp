@@ -13,7 +13,7 @@ int main(){
 	cin>>filas;
 	cout<<"Columnas:";
 	cin>>colum;
-	int vector[]={10,5,20};
+	//int vector[]={10,5,20};
 	int matriz[filas][colum];
 	for(int i=0; i<filas; i++){
 		for(int j=0; j<colum; j++){
