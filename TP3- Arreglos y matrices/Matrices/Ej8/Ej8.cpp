@@ -2,7 +2,7 @@
 
 #include <iostream>
 #include <ctime>
-//#include <stdint.h>
+#include <stdint.h>
 //#include <windows.h>
 //#define sleep(x) Sleep(x*1000)
 using namespace std;
@@ -13,7 +13,7 @@ int main (){
     int m2[3][3]={{2, 0, 2},{3, 9, 1},{1, 6, 3}};
     int produ[3][3];//Matriz que me va mostrar el producto de ambas
     cout<<"LLENAMOS AMBAS MATRICES:"<<endl;
-    //sleep(2);
+//    sleep(2);
     /*for(int i=0;i<3;i++){
         for(int j=0;j<3;j++){
             m1[i][j]=rand()%10;//hasta 9 numeros aleatorios

@@ -1,7 +1,7 @@
-/*Escribir un programa que genere aleatoriamente 100 pares de números, los números deberán almacenarse en un arreglo de struct con el 
-formato (x,y), luego el usuario debe ingresar un número y el programa determinar entre los datos almacenados cuales tienen pares cuyas 
-ambas componentes sean mayores al número ingresado. Con los pares mayores calcular la sumatoria de cada componente (x e y) y 
-mostrar el mensaje: 
+/*Escribir un programa que genere aleatoriamente 100 pares de números, los números deberán almacenarse en un arreglo de struct con el
+formato (x,y), luego el usuario debe ingresar un número y el programa determinar entre los datos almacenados cuales tienen pares cuyas
+ambas componentes sean mayores al número ingresado. Con los pares mayores calcular la sumatoria de cada componente (x e y) y
+mostrar el mensaje:
 LA SUMATORIA DE LOS PARES MAYORES QUE número ES:
 sum(x) =  sumatoriaX y sum(y) = sumatoriaY*/
 
@@ -50,8 +50,9 @@ int main() {
     } else {
         cout << "LA SUMATORIA DE LOS PARES MAYORES QUE " << numero << " ES:" << endl;
         cout << "sum(x) = " << sumatoriaX << " y sum(y) = " << sumatoriaY << endl;
-        
+
     }
+    system("pause");
 
     return 0;
 }
