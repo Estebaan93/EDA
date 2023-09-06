@@ -4,7 +4,7 @@ del libro. El color se deberá hacer mediante una enumeración y sólo habrá rojo, 
 using namespace std;
 
 //Va primero el color para que se pueda ejecutar
-enum class Color{
+enum Color{
     rojo,
     verde,
     azul
@@ -22,7 +22,6 @@ Libro libros[3];//Array para almacenar 3 libros
 cout<<"Ingresamos datos:"<<endl;
 for(int i=0;i<3;i++){
 cout<<"Ingrese el titulo del libro "<<i+1<<":";
-cin.ignore();//ignoramos el residuo anterior
 cin.getline(libros[i].titulo,20,'\n');
 cout<<"Ingrese el autor: ";
 cin.getline(libros[i].autor,20,'\n');
@@ -31,6 +30,7 @@ cin>>libros[i].anio;
 cout<<"Elija un color: (0-rojo, 1-verde, 2-azul)"<<endl;
 int colorInput;
 cin>>colorInput;
+cin.ignore();//ignoramos el residuo anterior
 //VALIDAMOS EL COLOR
 while(colorInput < 0 || colorInput > 2){
     cout<<"Color invalido, elija nuevamente: (0-rojo, 1-verde, 2-azul)"<<endl;

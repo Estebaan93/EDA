@@ -16,7 +16,7 @@ char nombre[15];
 char sexo[10];
 int edad;
 struct Promedio prom;   //struct anidada
-}alum[2];   //Array de 2 elementos
+}alum[2];               //Array de 2 elementos
 
 struct mejorPromedio{   //Array de struct alternativo para almacenar al mejor promedio
 char nombre[15];
