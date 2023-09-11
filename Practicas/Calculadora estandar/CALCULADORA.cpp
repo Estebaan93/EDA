@@ -43,6 +43,9 @@ case 5:
     r=pow(n1,n2);
     cout<<"LA POTENCIA ELEVADA DE "<<n1<<" A "<<n2<<" ES: "<<r<<endl;
     break;
+/*default:
+    cout<<"Opcion invalida"<<endl;
+    break;*/
 }
 cout<<"DESEA CONTINUAR? 1/SI. 0/NO"<<endl;
 cin>>salir;
