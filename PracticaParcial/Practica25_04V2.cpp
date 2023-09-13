@@ -6,8 +6,9 @@ LA SUMATORIA DE LOS PARES MAYORES QUE número ES:
 sum(x) =  sumatoriaX y sum(y) = sumatoriaY*/
 
 #include <iostream>
-//#include <cstdlib>
 #include <ctime>
+#define MAXVALUE 100        //Constante
+#define MAX 100             //Constante
 
 using namespace std;
 
@@ -18,11 +19,11 @@ struct Pares {
 };
 
 int main() {
-    Pares paress[100];
+    Pares paress[MAXVALUE];
 
     // Generamos aleatoriamente los 100 pares de números
     srand(time(NULL)); // Inicializamos la semilla del generador de números aleatorios con el tiempo actual
-    for (int i = 0; i < 100; i++) {
+    for (int i = 0; i < MAX; i++) {
         paress[i].x = rand() % 101; // Generamos un número aleatorio entre 0 y 100 para x
         paress[i].y = rand() % 101; // Generamos un número aleatorio entre 0 y 100 para y
     }
@@ -35,24 +36,18 @@ int main() {
     // Buscamos los pares cuyas dos componentes sean mayores que el número ingresado
     int sumatoriaX = 0;
     int sumatoriaY = 0;
-    int contador = 0;
-    for (int i = 0; i < 100; i++) {
+    for (int i = 0; i < MAX; i++) {
         if (paress[i].x > numero && paress[i].y > numero) {
             sumatoriaX += paress[i].x;
             sumatoriaY += paress[i].y;
             cout<<"x: "<<paress[i].x <<", "<<"y: "<<paress[i].y<<endl;
-            contador++;
         }
     }
 
     // Mostramos los resultados
-    if (contador == 0) {
-        cout << "No hay pares cuyas dos componentes sean mayores que " << numero << endl;
-    } else {
-        cout << "LA SUMATORIA DE LOS PARES MAYORES QUE " << numero << " ES:" << endl;
-        cout << "sum(x) = " << sumatoriaX << " y sum(y) = " << sumatoriaY << endl;
-
-    }
+    cout << "LA SUMATORIA DE LOS PARES MAYORES QUE " << numero << " ES:" << endl;
+    cout << "sum(x) = " << sumatoriaX << " y sum(y) = " << sumatoriaY << endl;
+    cout<<endl;
     system("pause");
 
     return 0;

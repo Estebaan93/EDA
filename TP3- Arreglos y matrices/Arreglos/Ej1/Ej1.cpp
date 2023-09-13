@@ -1,4 +1,4 @@
-/*Ejercicio 1: Escribe un programa que con While, defina un vector de números y calcule la suma de 
+/*Ejercicio 1: Escribe un programa que con While, defina un vector de números y calcule la suma de
 sus elementos. Use la librería conio.h, y la función getch(). */
 #include <iostream>
 #include <conio.h>  //Libreria para la funcion getch()
