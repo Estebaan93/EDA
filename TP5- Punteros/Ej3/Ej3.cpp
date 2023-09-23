@@ -2,6 +2,7 @@
 de caracteres con el número en base binaria. */
 
 #include <iostream>
+#include <stdlib.h> //Utilizar las funciones malloc (Me asigna dinamicamente un array, matriz), free (libera el puntero)
 using namespace std;
 
 
@@ -14,7 +15,7 @@ int main(){
     int numero;
     int *puntero=&numero;
 
-
+    malloc();
 
 
     system("pause");

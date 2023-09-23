@@ -11,34 +11,49 @@ la cantidad de números impares.*/
 using namespace std;
 
 int main(){
-    int n, t=0, j=0;
-    bool uno;
-    int arr[1];
+    int n, secuencia=0, s1=0, s2=0;
 
     cout<<"Ingrese un numero: ";
     cin>>n;
-
+    int par[n*3], impar[n*3], arr[n*3];
     while(n!=1){
-    j++;
+    arr[secuencia]=n;
+    secuencia++;
     if(n%2==0){
-        n=n/2;
+        par[s1]=n;
+        s1++;
+        n/=2;
     }else{
+        impar[s2]=n;
+        s2++;
         n=(n*3)+1;
-    }
-    cout<<"["<<n<<"]";
-    for(int i=0;i<j;i++){
-        arr[i+j]=n;
-        t=sizeof(arr)/sizeof(arr[0]);
     }
 
 }
-    cout<<"Imprimimos la secuencia completa:"<<endl;
-    for(int i=0;i<t;i++){
+    arr[secuencia]=1;
+    cout<<"Secuencia completa: "<<endl;
+    for(int i=0;i<secuencia+1;i++){
         cout<<"["<<arr[i]<<"]";
     }
-    cout<<t;
+    cout<<"\nLa cantidad de numeros total: "<<secuencia+1<<endl;
+    cout<<endl;
+    cout<<"Secuencia de los pares:"<<endl;
+    for(int i=0;i<s1;i++){
+        cout<<"["<<par[i]<<"]";
+    }
+    cout<<"\nCantidad: "<<s1;
 
-cout<<endl;
+    cout<<"\n"<<endl;
+    cout<<"Secuencia de los impares:"<<endl;
+    for(int i=0;i<s2;i++){
+        cout<<"["<<impar[i]<<"]";
+    }
+    cout<<"\nCantidad: "<<s2;
+    cout<<endl;
+
+
+    cout<<endl;
+
 system("pause");
 return 0;
 }

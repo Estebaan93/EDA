@@ -24,7 +24,7 @@ int main() {
     double intereses = principal * pow(1 + tasaMensual, plazo) - principal;
 
     // Mostrar los resultados
-    cout << "Despues de " << plazo << " meses, su inversion habrá crecido a: " << principal + intereses << " PESOS" << endl;
+    cout << "Despues de " << plazo << " meses, su inversion habra crecido a: " << principal + intereses << " PESOS" << endl;
     cout << "Intereses ganados: " << intereses << " PESOS" << endl;
 
     return 0;
