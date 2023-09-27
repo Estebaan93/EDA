@@ -27,12 +27,12 @@ struct Tarea{
 
 
 int main(){
-    int can=0, opc, estadoTarea;
+    int can=0, opc, estadoTarea, modificar, eliminar;
     bool aux=true, repetida;
     string buscar;
     char b2[100];
     while(aux){
-    cout<<"MENU DE OPCIONES: LISTA PARA 10 TAREAS. "<<endl;
+    cout<<"MENU DE TAREAS: "<<endl;
     cout<<"\n1. Crear nueva tarea."<<endl;
     cout<<"2. Modificar tarea."<<endl;
     cout<<"3. Borrar tarea."<<endl;
@@ -45,7 +45,7 @@ int main(){
 
                 ///En la primer vuelta no puede comparar porque el array esta vacio, el elemento si o si
                 ///debe guardarse.
-                while(can<2){
+                /*while(can<2){
                 cout<<"Ingrese una tarea: ";
                 cin.ignore();
                 cin.getline(b2,100,'\n');
@@ -55,8 +55,6 @@ int main(){
                 }
 
             }
-
-
 
             if(repetida){
                 for(int i=0; i<2; i++){
@@ -71,19 +69,32 @@ int main(){
                         }
                     Tareas[i].estado=static_cast<Estado>(estadoTarea);
                     }
+                }*/
+                for(int i=0;i<5;i++){
+                    cout<<"Ingrese la tarea: ";
+                    cin.ignore();
+                    cin.getline(Tareas[i].descripcion,100,'\n');
+                    cout<<"Ingrese el estado: (0. COMPLETADA - 1. PENDIENTE - 2. ENPROCESO - 3. OTRO)"<<endl;
+                    cin>>estadoTarea;
+                    while(estadoTarea <0 || estadoTarea >3){
+                    cout<<"Estado invalido, elija nuevamente (0-COMPLETADA, 1-PENDIENTE, 2-ENPROCESO, 3-OTRO):"<<endl;
+                    cin>>estadoTarea;
+                        }
+                    Tareas[i].estado=static_cast<Estado>(estadoTarea);
                 }
-
+                cout<<"\nTareas agregada con exito!"<<endl;
+                cout<<endl;
 
         break;
 
 
     case 2:
-            cout<<"Nombre de la tarea a modificar: "<<endl;
-            cin.ignore();
-            cin>>buscar;
+            /*cin.ignore();
+            cin>>buscar;*/
             bool encontrado;
-            for(int i=0; i<2; i++){
-                if(Tareas[i].descripcion==buscar){
+            for(int i=0; i<5; i++){
+                cout<<i+1<<". "<<Tareas[i].descripcion<<endl;
+                /*if(Tareas[i].descripcion==buscar){
                 encontrado=true;
                 cout<<"Va a modificar a "<<Tareas[i].descripcion<<endl;
                 cout<<"Estado: (0-COMPLETADA, 1-PENDIENTE, 2-ENPROCESO, 3-OTRO):"<<endl;
@@ -95,22 +106,42 @@ int main(){
             }
                 Tareas[i].estado=static_cast<Estado>(estadoTarea);
                 break;
-            }
+            }*/
 
         }
-            if(!encontrado){
+            cout<<"Ingrese la tarea a modificar: "<<endl;
+            cin>>modificar;
+            for(int i=modificar-1;i<modificar;i++){
+                cout<<"Va a modificar a "<<Tareas[i].descripcion<<endl;
+                cout<<"Estado: (0-COMPLETADA, 1-PENDIENTE, 2-ENPROCESO, 3-OTRO):"<<endl;
+                cin>>estadoTarea;
+                cin.ignore();
+                while(estadoTarea <0 || estadoTarea >3){
+                cout<<"Estado invalido, elija nuevamente (0-COMPLETADA, 1-PENDIENTE, 2-ENPROCESO, 3-OTRO):"<<endl;
+                cin>>estadoTarea;
+                }
+                Tareas[i].estado=static_cast<Estado>(estadoTarea);
+                break;
+
+
+            }
+            cout<<"\nModificada con exito!"<<endl;
+            cout<<endl;
+
+           /* if(!encontrado){
             cout<<"Producto no encontrado"<<endl;
             }
-            cout<<endl;
+            cout<<endl;*/
         break;
 
 
     case 3:
-        cout<<"Nombre de la tarea a borrar: "<<endl;
+        /*cout<<"Nombre de la tarea a borrar: "<<endl;
         cin>>buscar;
-        bool borrar;
-        for(int i=0; i<2; i++){
-            if(Tareas[i].descripcion==buscar){
+        bool borrar;*/
+        for(int i=0; i<5; i++){
+            cout<<i+1<<". "<<Tareas[i].descripcion<<endl;
+            /*if(Tareas[i].descripcion==buscar){
                 ///REVISAR ERROR DE BORRADO
                 borrar=true;
                 cout<<"Va a eliminar la tarea: "<<Tareas[i].descripcion<<endl;
@@ -121,19 +152,33 @@ int main(){
                     Tareas[i]=Tareas[i+1];
                     //Tareas[i].estado=Tareas[i+1].estado;
                     i--;
-            }
+            }*/
         }
-        if(!borrar){
+        cout<<"Ingrese la tarea a eliminar: "<<endl;
+        cin>>eliminar;
+        for(int i=eliminar-1;i<eliminar;i++){
+            cout<<"Va a eliminar a: "<<Tareas[i].descripcion<<endl;
+            cout<<"Esta seguro? (0- si/ 1. no): ";
+            int eli;
+            cin>>eli;
+            if(eli==0 || eli==1)
+            Tareas[i]=Tareas[i-1];
+            //Tareas[i].estado=Tareas[i+1].estado;
+            i--;
+            break;
+        }
+
+        /*if(!borrar){
         cout<<"Producto no encontrado"<<endl;
-    }
+    }*/
         break;
 
 
     case 4:
-        cout<<"Mostraremos todas las tares: "<<endl;
-        for(int i=0; i<2; i++){
+        cout<<"TODAS LAS TAREAS "<<endl;
+        for(int i=0; i<5; i++){
                 ///REVISAR ERROR AL IMPRIMIR TAREA VACIA, IMPRIME EL ESTADO TAMBIEN
-            cout<<"Tarea: "<<Tareas[i].descripcion<<endl;
+            cout<<"Tarea: "<<i+1<<". "<<Tareas[i].descripcion<<endl;
             if(!strcmp(Tareas[i].descripcion, "")==0){
                 switch(Tareas[i].estado){
                     case Estado::COMPLETADA:
@@ -152,6 +197,7 @@ int main(){
                         cout<<"Estado: OTRO"<<endl;
                         break;
                     }
+                    cout<<endl;
                 }
             }
         cout<<endl;

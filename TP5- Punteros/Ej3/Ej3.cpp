@@ -6,10 +6,8 @@ de caracteres con el número en base binaria. */
 using namespace std;
 
 
-string cadenaABinario(int *puntero) {
-    *puntero = *puntero*2; // Cambiar el valor apuntado por el puntero al doble
-    return "";
-}
+string cadenaABinario(int *puntero); ///Declaraion de la funcion
+
 
 int main(){
     int numero;
@@ -20,4 +18,11 @@ int main(){
 
     system("pause");
     return 0;
+}
+
+
+///Cuerpo de la funcion
+string cadenaABinario(int *puntero) {
+    *puntero = *puntero*2; // Cambiar el valor apuntado por el puntero al doble
+    return "";
 }
