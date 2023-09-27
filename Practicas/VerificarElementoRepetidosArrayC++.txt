@@ -1,0 +1,24 @@
+for (int i=0;i<N;i++){//Este ciclo recorre el vector en busca de las coincidencias
+                if (vector[i].ciudad==1){
+                ventasm+=1;//cuando ciudad es 1, se le suma 1 al contador de la ciudad 1.
+                if(!clienteEnVectorClientes(cliente)) //esta función simplemente busca un elemento en un vector
+                numClientes+=1; //incrementamos nuestro contador de clientes diferentes
+                }
+                else if (vector[i].ciudad==2){//exactamente lo mismo pero con la segunda ciudad
+                ventabq+=1;
+                clientebq+=1;
+                }
+            }
+            
+            
+bool clienteEnVectorClientes(string cliente)
+{
+    for(int i=0; i<numClientes;i++)
+    {
+        if(cliente==clientes[i])
+        {
+            return true;
+        }
+    }
+  return false;
+}

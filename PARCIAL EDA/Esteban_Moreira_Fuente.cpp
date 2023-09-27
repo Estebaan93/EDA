@@ -27,7 +27,7 @@ struct Tarea{
 
 
 int main(){
-    int can, opc, estadoTarea;
+    int can=0, opc, estadoTarea;
     bool aux=true, repetida;
     string buscar;
     char b2[100];
@@ -42,21 +42,40 @@ int main(){
     cout<<endl;
     switch(opc){
     case 1:
-            for(int i=0; i<2;i++){
+
+                ///En la primer vuelta no puede comparar porque el array esta vacio, el elemento si o si
+                ///debe guardarse.
+                while(can<2){
                 cout<<"Ingrese una tarea: ";
                 cin.ignore();
-                cin.getline(Tareas[i].descripcion,100,'\n');
+                cin.getline(b2,100,'\n');
+                if(!strcmp(b2,Tareas[i-1].descripcion)==0){
+                    can++;
+                    break;
+                }
+
+            }
+
+
+
+            if(repetida){
+                for(int i=0; i<2; i++){
+                    ///REVISAR PARA NO INGRESAR TAREAS REPETIDAS
+                strcpy(Tareas[i].descripcion,b2);
+                //cin.getline(Tareas[i].descripcion,100,'\n');
                 cout<<"Ingrese el estado: (0. COMPLETADA - 1. PENDIENTE - 2. ENPROCESO - 3. OTRO)"<<endl;
                 cin>>estadoTarea;
-                cin.ignore();
                 while(estadoTarea <0 || estadoTarea >3){
                 cout<<"Estado invalido, elija nuevamente (0-COMPLETADA, 1-PENDIENTE, 2-ENPROCESO, 3-OTRO):"<<endl;
                 cin>>estadoTarea;
-                    }
+                        }
                     Tareas[i].estado=static_cast<Estado>(estadoTarea);
+                    }
                 }
 
+
         break;
+
 
     case 2:
             cout<<"Nombre de la tarea a modificar: "<<endl;
@@ -85,19 +104,22 @@ int main(){
             cout<<endl;
         break;
 
+
     case 3:
         cout<<"Nombre de la tarea a borrar: "<<endl;
         cin>>buscar;
         bool borrar;
         for(int i=0; i<2; i++){
             if(Tareas[i].descripcion==buscar){
+                ///REVISAR ERROR DE BORRADO
                 borrar=true;
                 cout<<"Va a eliminar la tarea: "<<Tareas[i].descripcion<<endl;
-                cout<<"Esta seguro? (0- si/ 1. no)";
+                cout<<"Esta seguro? (0- si/ 1. no): ";
                 int eli;
                 cin>>eli;
                 if(eli==0 || eli==1)
                     Tareas[i]=Tareas[i+1];
+                    //Tareas[i].estado=Tareas[i+1].estado;
                     i--;
             }
         }
@@ -106,31 +128,35 @@ int main(){
     }
         break;
 
+
     case 4:
         cout<<"Mostraremos todas las tares: "<<endl;
         for(int i=0; i<2; i++){
+                ///REVISAR ERROR AL IMPRIMIR TAREA VACIA, IMPRIME EL ESTADO TAMBIEN
             cout<<"Tarea: "<<Tareas[i].descripcion<<endl;
+            if(!strcmp(Tareas[i].descripcion, "")==0){
+                switch(Tareas[i].estado){
+                    case Estado::COMPLETADA:
+                        cout<<"Estado: COMPLETADA"<<endl;
+                        break;
 
-        switch(Tareas[i].estado){
-            case Estado::COMPLETADA:
-                cout<<"Estado: COMPLETADA"<<endl;
-                break;
+                        case Estado::PENDIENTE:
+                        cout<<"Estado: PENDIENTE"<<endl;
+                        break;
 
-                case Estado::PENDIENTE:
-                cout<<"Estado: PENDIENTE"<<endl;
-                break;
+                    case Estado::ENPROCESO:
+                        cout<<"Estado: ENPROCESO"<<endl;
+                        break;
 
-            case Estado::ENPROCESO:
-                cout<<"Estado: ENPROCESO"<<endl;
-                break;
-
-            case Estado::OTRO:
-                cout<<"Estado: OTRO"<<endl;
-                break;
-        }
-        }
+                    case Estado::OTRO:
+                        cout<<"Estado: OTRO"<<endl;
+                        break;
+                    }
+                }
+            }
         cout<<endl;
         break;
+
 
     case 5:
         aux=false;
