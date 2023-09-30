@@ -25,7 +25,7 @@ int main() {
 
 // Función que toma un puntero como argumento y modifica el valor apuntado
 ///Esta funcion tiene return!
-///La funcion que no tiene return es un procedimiento, la que tiene return es una funcion!
+///Los procedimientos no tienen return!
 int modificarValor(int *puntero) {
     *puntero = *puntero*2; // Cambiar el valor apuntado por el puntero al doble
     return *puntero;

@@ -14,13 +14,12 @@ cout<<"INGRESE UN NUMERO B:"<<endl;
 cin>>n2;
 
 do {
-cout<<"ELIJA UNA OPCION:"<<endl;;
+cout<<"ELIJA UNA OPCION:"<<endl;
 cout<<"1.SUMA"<<endl;
 cout<<"2.RESTA"<<endl;
 cout<<"3.MULT"<<endl;
 cout<<"4.DIV"<<endl;
 cout<<"5.POTENCIA"<<endl;
-cout<<"6.SALIR"<<endl;
 cin>>opc;
     switch(opc){
 case 1:
