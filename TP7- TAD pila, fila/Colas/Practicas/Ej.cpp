@@ -3,7 +3,7 @@
 2. Mostrar todos los elementos de la cola
 3. Salir*/
 
-#include <istream>
+#include <iostream>
 #include <stdlib.h>
 using namespace std;
 
@@ -12,13 +12,13 @@ struct Nodo{
     Nodo *siguiente;        //Puntero a siguiente
 };
 
-//Prototipos de funciones
-void insertarColas(Nodo *&, Nodo *&, int);
+///Prototipos de funciones
+void insertarColas(Nodo *&, Nodo *&, char);
 bool cola_vacia(Nodo *);
-void suprimirCola(Nodo *&, Nodo *&, int &);
+void suprimirCola(Nodo *&, Nodo *&, char &);
 
 int main(){
-    char dato, salir;
+    char dato;
     Nodo *frente=NULL;
     Nodo *fin=NULL;
     int opc;
@@ -27,38 +27,40 @@ int main(){
         cout<<"1. Insertar caracter a la cola."<<endl;
         cout<<"2. Mostrar todos los elementos de la cola."<<endl;
         cout<<"3. Salir."<<endl;
-        cin<<opc;
+        cin>>opc;
         switch(opc){
         case 1:
             cout<<"Ingrese el caracter:";
             cin>>dato;
+            cin.ignore();
             insertarColas(frente, fin, dato);
             break;
         case 2:
-            cout<<"Quitando elementos de la cola, desde el frente."<<endl;
+            cout<<"\nQuitando elementos de la cola, desde el frente."<<endl;
             while(frente !=NULL){    //Significa que hay mas nodos en la cola para eliminar
                 suprimirCola(frente, fin, dato);
                 if(frente !=NULL){  //Aun quedan elementos en el frente
                     cout<<dato<<" , ";
                 }else{
-                    cout<<dato<<" . "; //Es el ultimo elemento
+                    cout<<dato<<"."; //Es el ultimo elemento
                 }
             }
+            cout<<"\n\n";
+            system("pause");
             break;
         case 3:
-            cout<<"Saliendo del menu.."<<endl;
-            salir='s';
             break;
         }
-    }while(salir=='s');
+        system("cls"); //Para limpiar la pantalla
+    }while(opc!=3);
 
     system("pause");
 return 0;
 }
 
-//FUNCIONES CUERPO
-void insertarColas(Nodo *&frente, Nodo *&fin, int n){
-    Nodo *nuevo_nodo=New Nodo();    //Espacio en memoria
+///FUNCIONES DEFINICIONES
+void insertarColas(Nodo *&frente, Nodo *&fin, char n){
+    Nodo *nuevo_nodo=new Nodo();    //Espacio en memoria
     nuevo_nodo->dato=n;
     nuevo_nodo->siguiente=NULL;
     if(cola_vacia(frente)){
@@ -67,4 +69,23 @@ void insertarColas(Nodo *&frente, Nodo *&fin, int n){
         fin->siguiente=nuevo_nodo;
     }
     fin=nuevo_nodo;
+    cout<<"Elemento "<<n<<" insertado a la cola correctamente\n"<<endl;
+}
+
+//FUNCION COLA VACIA
+bool cola_vacia(Nodo *frente){
+    return (frente==NULL) ? true : false;
+}
+
+//FUNCION SUPRIMIR COLA, SIEMPRE DESDE EL MISMO ORDEN QUE SE INGRESARON
+void suprimirCola(Nodo *&frente, Nodo *&fin, char &n){
+    n=frente->dato;
+    Nodo *aux=frente;
+    if(frente==fin){
+        frente=NULL;
+        fin=NULL;
+    }else{
+        frente=frente->siguiente;
+    }
+    delete aux;
 }
