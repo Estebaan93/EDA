@@ -33,7 +33,7 @@ return 0;
 }
 
 
-///DECLARACIONES
+///DEFINICIONES
 //CARGAMOS LA PILA
 void cargarPila(pila &pilaA){
     numero num;
