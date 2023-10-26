@@ -12,20 +12,33 @@ using namespace std;
 //Declaraciones
 
 void cargarPilaAuto(pila &);
-pila separarPI(pila&, pila&, pila&);
+pila separarPI(pila, pila &, pila &);
 void mostrarPila(pila);
+pila invierte(pila &, pila &, pila &);
 
 int main(){
     pila pilaA, pilaB, pilaC;
     cout<<"PilaA vacia? "<<pilaA.pilaVacia();
     cout<<"\nPilaB vacia? "<<pilaB.pilaVacia();
     cout<<"\nPilaC vacia? "<<pilaC.pilaVacia();
-    cout<<"\nLlenamos la pilaA hasta 30 elementos."<<endl;
+    cout<<"\n\nLlenamos la pilaA hasta 30 elementos."<<endl;
     cargarPilaAuto(pilaA);
     mostrarPila(pilaA);
+    cout<<"Tope pilaA: "<<pilaA.verTope().n<<endl;
     separarPI(pilaA, pilaB, pilaC);
-
-
+    cout<<"PilaA vacia? "<<pilaA.pilaVacia();
+    cout<<endl;
+    cout<<"\nImprimimos la pilaB con los pares: ";
+    mostrarPila(pilaB);
+    cout<<"\nImprimimos la pilaC con los pares: ";
+    mostrarPila(pilaC);
+    cout<<"\nMostramos la pilaA nuevamente: "<<endl;
+    mostrarPila(pilaA);
+    cout<<"\nPasamos los elementos de la pilaA a pilaC, y luego a pilaB para quedar originalmente como pilaA."<<endl;
+    invierte(pilaA, pilaB, pilaC);
+    cout<<"PilaA esta vacia? "<<pilaA.pilaVacia();
+    cout<<"\n\nPilaB: ";
+    mostrarPila(pilaB);
 
     cout<<endl;
     system("pause");
@@ -41,7 +54,7 @@ void cargarPilaAuto(pila &pilaA){
     }
 }
 
-pila separarPI(pila &pilaA, pila &pilaB, pila &pilaC){
+pila separarPI(pila pilaA, pila &pilaB, pila &pilaC){
     struct numero par, impar;
     while(!pilaA.pilaVacia()){
     if(pilaA.verTope().n%2==0){
@@ -56,10 +69,26 @@ pila separarPI(pila &pilaA, pila &pilaB, pila &pilaC){
 
 }
 
-void mostrarPila(pila pilaA){
-    while(!pilaA.pilaVacia()){
-        cout<<"("<<pilaA.verTope().n<<")";
-        pilaA.pop();
+void mostrarPila(pila pilaX){
+    while(!pilaX.pilaVacia()){
+        cout<<"("<<pilaX.verTope().n<<")";
+        pilaX.pop();
     }
     cout<<endl;
+}
+
+pila invierte(pila &pilaA, pila &pilaB, pila &pilaC){
+    while(!pilaB.pilaVacia() || !pilaC.pilaVacia()){
+        pilaB.pop();
+        pilaC.pop();
+    }
+    while(!pilaA.pilaVacia()){
+        pilaC.push(pilaA.verTope());
+        pilaA.pop();
+    }
+    while(!pilaC.pilaVacia()){
+        pilaB.push(pilaC.verTope());
+        pilaC.pop();
+    }
+
 }
