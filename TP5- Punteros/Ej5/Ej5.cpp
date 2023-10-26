@@ -56,7 +56,7 @@ return 0;
 int agregar(int *arr, int n, int tam){
     //int tamaArray=sizeof(arr)
     for(int i=0;i<sizeof(arr)/sizeof(arr[0]);i++){
-        arr[i]=malloc(tam*sizeof(int));
+        //arr[i]=malloc(tam*sizeof(int));
         arr[i]=n;
     }
 }
