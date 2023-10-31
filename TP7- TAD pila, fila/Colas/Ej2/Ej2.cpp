@@ -73,26 +73,19 @@ void cargarOperacion(fila &f){
     persona p;
     cout<<"Ingrese el DNI: "<<endl;
     cin>>p.DNI;
-    while(!f.estaLlena()){
+    if(!f.estaLlena()){
         f.insertar(p);
+    }else{
+        cout<<"Fila llena."<<endl;
     }
-
-    cout<<f.estaLlena();
-
 
     cout<<endl;
 }
 
 void atender(fila &f){
-    int i=0;
     while(!f.estaVacia()){
-        i++;
-        cout<<i<<": "<<f.verPrimero().DNI<<endl;
+        cout<<f.verPrimero().DNI<<endl;
         f.suprimir();
     }
-
-
-
-
 
 }

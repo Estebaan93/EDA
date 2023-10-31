@@ -58,7 +58,7 @@ public:     //Interfaz publica
         }
         return false;
     }
-    int getCantidad(){
+    int getCantidad(){      //Cantidad de elementos que estan en la fila
         return cantidad;
     }
 };

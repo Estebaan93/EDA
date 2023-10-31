@@ -4,8 +4,8 @@ using namespace std;
 const int MAX=10;
 //#define MAX 10
 
-struct persona{
-    int DNI;
+struct elementos{
+    int n;
 };
 
 struct fila{
@@ -13,17 +13,17 @@ private:    //Encapsulamiento
     int primero=0;
     int ultimo=-1;
     int cantidad=0;
-    persona personas[MAX];
+    elementos personas[MAX];
     //persona pers[MAX]; //struct de personas (10)
 public:     //Interfaz publica
-    bool insertar(persona p){
+    bool insertar(elementos p){
         if(!estaLlena()){
             if(ultimo==MAX-1){
                 ultimo=0;
             }else{
                 ultimo++;
             }
-        personas[ultimo]=p;
+        elementos[ultimo]=p;
         cantidad++;
         }
     }
@@ -39,10 +39,10 @@ public:     //Interfaz publica
         }
         return false;
     }
-     persona verPrimero(){
+     elementos verPrimero(){
         return personas[primero]; //peak o mirar devuelve el numero que esta en la posicion
     }
-     persona verUltimo(){
+     elementos verUltimo(){
         return personas[ultimo];
     }
 
