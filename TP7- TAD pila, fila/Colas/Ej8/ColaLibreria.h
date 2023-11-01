@@ -1,24 +1,27 @@
 /*COLA STRUCT PARA UTILIZAR CON LA LIBRERIA*/
 #include <iostream>
 using namespace std;
-const int MAX=10;
+const int MAXFILA=10;
 //#define MAX 10
 
-struct elementos{
+///EN CASO DE QUERER UNA FILA DE ESTRUCTURA
+/*struct elemento{
     int n;
-};
+};*/
 
+
+///FILA DE ELEMENTOS PRIMITIVOS
 struct fila{
 private:    //Encapsulamiento
     int primero=0;
     int ultimo=-1;
     int cantidad=0;
-    elementos personas[MAX];
+    int elementos[MAXFILA];
     //persona pers[MAX]; //struct de personas (10)
 public:     //Interfaz publica
-    bool insertar(elementos p){
+    bool insertar(int p){
         if(!estaLlena()){
-            if(ultimo==MAX-1){
+            if(ultimo==MAXFILA-1){
                 ultimo=0;
             }else{
                 ultimo++;
@@ -29,7 +32,7 @@ public:     //Interfaz publica
     }
     bool suprimir(){
         if(cantidad>0){
-            if(primero==MAX-1){
+            if(primero==MAXFILA-1){
                 primero=0;
             }else{
                 primero++;
@@ -39,11 +42,11 @@ public:     //Interfaz publica
         }
         return false;
     }
-     elementos verPrimero(){
-        return personas[primero]; //peak o mirar devuelve el numero que esta en la posicion
+     int verPrimero(){
+        return elementos[primero]; //peak o mirar devuelve el numero que esta en la posicion
     }
-     elementos verUltimo(){
-        return personas[ultimo];
+     int verUltimo(){
+        return elementos[ultimo];
     }
 
     bool estaVacia(){
@@ -53,7 +56,7 @@ public:     //Interfaz publica
         return false;
     }
     bool estaLlena(){
-        if(cantidad==MAX){    //Verdadero si esta llena
+        if(cantidad==MAXFILA){    //Verdadero si esta llena
             return true;
         }
         return false;

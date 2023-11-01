@@ -1,6 +1,6 @@
 /*PRUEBAS A ORDENAR UNA PILA DESDE LA HORA QUE SE INGRESO, SE PASA A UN ARRAY?*/
 #include <iostream>
-#include <vector>
+//#include <vector>
 #include "PilaLibreria.h"
 using namespace std;
 
