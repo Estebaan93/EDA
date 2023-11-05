@@ -4,7 +4,7 @@
 3. Salir*/
 
 #include <iostream>
-#include <stdlib.h>
+#include <stdlib.h>     //NEW
 using namespace std;
 
 struct Nodo{
@@ -60,7 +60,7 @@ return 0;
 
 ///FUNCIONES DEFINICIONES
 void insertarColas(Nodo *&frente, Nodo *&fin, char n){
-    Nodo *nuevo_nodo=new Nodo();    //Espacio en memoria
+    Nodo *nuevo_nodo=new Nodo();    //Nuevo Espacio en memoria
     nuevo_nodo->dato=n;
     nuevo_nodo->siguiente=NULL;
     if(cola_vacia(frente)){

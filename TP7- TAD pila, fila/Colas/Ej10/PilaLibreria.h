@@ -1,21 +1,24 @@
 /*PILA STRUCT PARA UTILIZAR CON LA LIBRERIA*/
 #include <iostream>
 using namespace std;
-const int MAX=10;
+const int MAXPILA=20;
 
-/*struct numero{
-    int n;
+///EN CASO DE QUERER UNA PILA DE ESTRUCTURA
+/*struct elementoPila{
+    int nPila;
 };*/
 
+
+///PILA DE ELEMENTOS PRIMITIVOS
 struct pila{
 private:    //Encapsulamiento
     int tope=-1;
-    int nums[MAX]; //struct de personas (10)
+    int datosPila[MAXPILA]; //struct de personas (10)
 public:     //Interfaz publica
-    bool push(int p){
+    bool push(char p){
         if(!pilaLlena()){
             tope++;
-            nums[tope]=p;
+            datosPila[tope]=p;
             return true;
         } else{
             //cout<<"La pila esta llena."<<endl;
@@ -23,7 +26,7 @@ public:     //Interfaz publica
         }
     }
     int verTope(){
-        return nums[tope]; //peak o mirar devuelve el numero que esta en la posicion
+        return datosPila[tope]; //peak o mirar devuelve el numero que esta en la posicion
     }
     bool pop(){
         if(!pilaVacia()){
@@ -40,7 +43,7 @@ public:     //Interfaz publica
         return false;
     }
     bool pilaLlena(){
-        if(tope==MAX-1){    //Verdadero si esta llena
+        if(tope==MAXPILA-1){    //Verdadero si esta llena
             return true;
         }
         return false;

@@ -17,7 +17,12 @@ void mostrarPila(pila pilaA);
 
 int main(){
     pila pilaA;
-    cout<<"Ingrese numeros: "<<endl;
+    pilaA.push(3);
+    while(!pilaA.pilaVacia()){
+        cout<<pilaA.verTope();
+        pilaA.pop();
+    }
+    /*cout<<"Ingrese numeros: "<<endl;
     for(int i=0;i<3;i++){
         cargarPila(pilaA);
     }
@@ -28,14 +33,14 @@ int main(){
     cout<<"\n\nUtilizamos una pila aux para dar vuelta a valores original: ";
     darVueltas(pilaA);
     cout<<"\n\n";
-    system("pause");
+    system("pause");*/
 return 0;
 }
 
-
+/*
 ///DEFINICIONES
 //CARGAMOS LA PILA
-void cargarPila(pila &pilaA){
+/*void cargarPila(pila &pilaA){
     numero num;
     cin>>num.n;
     pilaA.push(num);
@@ -49,7 +54,7 @@ pila pasaPila(pila pilaB){
         pilaB.pop();
     }
     while(!aux.pilaVacia()){
-        cout<<"("<<aux.verTope().n<<")";
+        cout<<"("<<aux.verTope()<<")";
         aux.pop();
     }
     return aux;
@@ -63,16 +68,16 @@ pila darVueltas(pila pilaB){
         pilaB.pop();                //VACIAMOS PILA B
     }
     cout<<"\nPilaB esta vacia? "<<pilaB.pilaVacia();    //1 TRUE - 0 FALSE
-    cout<<"\nVemos el tope: "<<pilaB.verTope().n<<endl;
+    cout<<"\nVemos el tope: "<<pilaB.verTope()<<endl;
     while(!aux.pilaVacia()){
         pilaB.push(aux.verTope());  //DAMOS VUELTA
         aux.pop();                  //VACIAMOS AUX
     }
     cout<<"\nPilaB esta vacia? "<<pilaB.pilaVacia();    //1 TRUE - 0 FALSE
-    cout<<"\nVemos el tope: "<<pilaB.verTope().n<<endl;
+    cout<<"\nVemos el tope: "<<pilaB.verTope()<<endl;
     cout<<"\nMostramos pilaB: "<<endl;
     while(!pilaB.pilaVacia()){
-        cout<<"("<<pilaB.verTope().n<<")";
+        cout<<"("<<pilaB.verTope()<<")";
         pilaB.pop();
     }
 }
@@ -80,10 +85,10 @@ pila darVueltas(pila pilaB){
 //IMPRIME LA PILA
 void mostrarPila(pila pilaA){
     while(!pilaA.pilaVacia()){
-        cout<<"("<<pilaA.verTope().n<<")";
+        cout<<"("<<pilaA.verTope()<<")";
         pilaA.pop();
     }
     cout<<endl;
 }
 
-
+*/

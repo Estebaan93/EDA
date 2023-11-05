@@ -3,19 +3,21 @@
 using namespace std;
 const int MAX=10;
 
-/*struct numero{
-    int n;
+/*struct persona{
+    char nombre[30];
+    int edad;
+    string genero;
 };*/
 
 struct pila{
 private:    //Encapsulamiento
     int tope=-1;
-    int nums[MAX]; //struct de personas (10)
+    int n[MAX]; //struct de personas (10)
 public:     //Interfaz publica
     bool push(int p){
         if(!pilaLlena()){
             tope++;
-            nums[tope]=p;
+            n[tope]=p;
             return true;
         } else{
             //cout<<"La pila esta llena."<<endl;
@@ -23,7 +25,7 @@ public:     //Interfaz publica
         }
     }
     int verTope(){
-        return nums[tope]; //peak o mirar devuelve el numero que esta en la posicion
+        return n[tope]; //peak o mirar devuelve el numero que esta en la posicion
     }
     bool pop(){
         if(!pilaVacia()){
