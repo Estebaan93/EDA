@@ -16,14 +16,67 @@ using namespace std;
 //DECLARACIONES
 
 
-
 int main(){
+    pilaDoble pilaDoble1;
+    int opc;
+    int valor;
 
+    do{
+        cout<<"MENU"<<endl;
+        cout<<"1. Agregar valor a la pila."<<endl;
+        cout<<"2. Ver tope de la primera pila."<<endl;
+        cout<<"3. Ver tope de la segunda pila."<<endl;
+        cout<<"4. Imprimir pila."<<endl;
+        cout<<"5. Eliminar elemento de la primera seccion."<<endl;
+        cout<<"6. Eliminar elemento de la segunda seccion."<<endl;
+        cout<<"7. Ver topes."<<endl;
+        cout<<"8. Salir"<<endl;
+        cin>>opc;
+        switch(opc){
+        case 1:
+            cout<<"Ingrese el valor: ";
+            cin>>valor;
+            pilaDoble1.push(valor);
+            cout<<endl;
+            break;
+        case 2:
+            cout<<"Tope: ";
+            pilaDoble1.peekTope1();
+            cout<<endl;
+            break;
+        case 3:
+            cout<<"Tope: ";
+            pilaDoble1.peekTope2();
+            cout<<endl;
+            break;
+        case 4:
+            cout<<"Pila: "<<endl;
+            pilaDoble1.imprimirPila();
+            cout<<endl;
+            break;
+        case 5:
+            pilaDoble1.pop1();
+            cout<<endl;
+            break;
+        case 6:
+            pilaDoble1.pop2();
+            cout<<endl;
+            break;
+        case 7:
+            pilaDoble1.verTopes();
+            break;
+        case 8:
 
-
-
+            break;
+        }
+    }while(opc!=8);
 
 
     system("pause");
 return 0;
 }
+
+///DEFINICIONES
+
+
+

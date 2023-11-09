@@ -15,7 +15,7 @@ fila ordenarElementos(fila &);
 
 int main(){
     fila f1, f2;
-    cargarAleatoria(f1);
+    cout<<cargarAleatoria(f1);
     imprimiarFila(f1);
 
 

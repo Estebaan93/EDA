@@ -122,32 +122,24 @@ int main(){
 
 void agregarArticulo(Fila *fila, Articulo articulo) {
     Fila filaAux;
-
     int cantidadArticuloNuevo;
     do {
         cout << "Ingrese la cantidad: ";
         cin >> cantidadArticuloNuevo;
-
         if (cantidadArticuloNuevo < 1){
             cout << "Ingrese una cantidad correcta." << endl;
         }
-
     } while (cantidadArticuloNuevo < 1);
-
 
     int opcConfirmado;
     bool articuloConfirmado = false;
     cout << "Desea confirmar el articulo? (1-SI | 0-NO)" << endl;
     cin >> opcConfirmado;
-
     if (opcConfirmado == 1) {
         articuloConfirmado = true;
     }
-
-
     bool articuloExistente = false;
     Articulo articuloRepetido;
-
     while (!fila->estaVacia()){
         if(fila->verPrimero().descripcion == articulo.descripcion){
             articuloRepetido.descripcion = fila->verPrimero().descripcion;
@@ -156,30 +148,24 @@ void agregarArticulo(Fila *fila, Articulo articulo) {
             articuloRepetido.estado = fila->verPrimero().estado;
             articuloExistente = true;
         }
-
         filaAux.insertar(fila->verPrimero());
         fila->suprimir();
     }
-
     articuloRepetido.cantidad += cantidadArticuloNuevo;
     articuloRepetido.estado = articuloConfirmado;
-
     while (!filaAux.estaVacia()){
         if (filaAux.verPrimero().descripcion == articuloRepetido.descripcion) {
             fila->insertar(articuloRepetido);
         }else{
             fila->insertar(filaAux.verPrimero());
         }
-
         filaAux.suprimir();
     }
-
     if (!articuloExistente){
         articulo.cantidad = cantidadArticuloNuevo;
         articulo.estado = articuloConfirmado;
         fila->insertar(articulo);
     }
-
 }
 
 void listarArticulosMasGanancias(Fila fila){
