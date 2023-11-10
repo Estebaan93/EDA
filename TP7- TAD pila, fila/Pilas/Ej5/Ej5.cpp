@@ -71,14 +71,13 @@ void cargarPilaCochera(pila &cochera){
     Auto autoX;
     if(!cochera.pilaLlena()){
         cout<<"Ingrese el propietario: ";
-        cin.getline(autoX.propietario,20,'\n');
-        cin.ignore();
+        cin>>autoX.propietario;
         cout<<"Placa del vehiculo: ";
-        cin.getline(autoX.placa,20,'\n');
-        cin.ignore();
-        cout<<"Hora de ingreso (Ej. 21:40): ";
-        cin.getline(autoX.horaEntrada,10,'\n');
-        cin.ignore();
+        cin>>autoX.placa;
+        cout<<"Hora de ingreso (Ej. 21.40): ";
+        cin>>autoX.horaEntrada;
+        cout<<"Hora de salida (Ej. 21.40): ";
+        cin>>autoX.horaSalida;
         cochera.push(autoX);
     }else{
         cout<<"La cochera esta llena."<<endl;
@@ -91,26 +90,36 @@ void mostrarPila(pila pilaX){
         cout<<"["<<pilaX.getTope()+1<<"]- Entrada: "<<pilaX.verTope().horaEntrada<<" Hs- "<<pilaX.verTope().propietario<<", Dominio: "<<pilaX.verTope().placa<<"."<<endl;
         pilaX.pop();
     }
-    //cout<<endl;
+    cout<<endl;
 }
 
 pila sacandoAutoPorOrdenDeSalida(pila cochera){
-     int autoOrdenados[10];
+    pila cocheraAux;
     while(!cochera.pilaVacia()){
-        for(int i=0;i<MAX;i++){
-            autoOrdenados[i]=static_cast<int>(cochera.verTope().horaEntrada);
-        }
+        Auto autoAux=cochera.verTope();
         cochera.pop();
-    }
-     for(int i=0;i<MAX;i++){
-            for(int j=0;j<MAX-i-1; j++){
-                if(autoOrdenados[j].horaEntrada>autoOrdenados[j+1].horaEntrada){
-                    //intercambiar [j][j+1]
-                    int temp=static_cast<int>(autoOrdenados[j].horaEntrada);
-                    autoOrdenados[j]=autoOrdenados[j+1];
-                    autoOrdenados[j+1]=temp;
-                    cochera.push(temp);
-                }
+        bool encontrado;
+        pila tempo;
+
+        while(!cochera.pilaVacia()){
+            Auto siguiente=cochera.verTope();
+            cochera.pop();
+            if(autoAux.horaEntrada<siguiente.horaEntrada){
+                encontrado=true;
+                tempo.push(siguiente);
+            }else{
+
             }
+
         }
+
+        while(!tempo.pilaVacia()){
+            cocheraAux.push(tempo.verTope());
+            tempo.pop();
+        }
+
+    }
+    while(!cocheraAux.pilaVacia()){
+        cout<<"Hora: "<<cocheraAux.verTope().horaEntrada<<endl;
+    }
 }

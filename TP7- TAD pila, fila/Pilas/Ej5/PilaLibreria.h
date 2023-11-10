@@ -4,9 +4,10 @@ using namespace std;
 const int MAX=10;
 
 struct Auto{
-    char placa[20];
-    char propietario [20];
-    char horaEntrada[10];
+    string placa;
+    string propietario;
+    float horaEntrada;
+    float horaSalida;
 };
 
 struct pila{

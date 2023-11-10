@@ -17,8 +17,8 @@ programa*/
 using namespace std;
 
 //DECLARACIONES
-void agregarOActualizarArticulo(fila&, articulo *);
-void imprimirArreglo(articulo *);
+fila agregarOActualizarArticulo(fila &);
+fila imprimirArreglo(articulo *, fila &);
 void imprimir(fila);
 
 int main(){
@@ -36,28 +36,60 @@ int main(){
     articulo a10={10,"Articulo C", 11};
 
     articulo articulos[]={a1,a2,a3,a4,a5,a6,a7,a8,a9,a10};
-    imprimirArreglo(articulos);
-
+    imprimirArreglo(articulos, filaArticulos);
+    cout<<endl;
+    agregarOActualizarArticulo(filaArticulos);
+    cout<<"\nFila modificada"<<endl;
     imprimir(filaArticulos);
     cout<<endl;
 
-    agregarOActualizarArticulo(filaArticulos, articulos);
-
-    imprimir(filaArticulos);
-    cout<<endl;
     system("pause");
 return 0;
 }
 ///DEFINICIONES
-void imprimirArreglo(articulo *art){
+fila imprimirArreglo(articulo *art, fila &f){
+    cout<<"Lista repetida:"<<endl;
     for(int i=0;i<10;i++){
         cout<<"Desc: "<<art[i].descripcion<<", Can: "<<art[i].cantidad<<", Id: "<<art[i].identificacion<<endl;
+        f.insertar(art[i]);
     }
-
+    return f;
 }
 
-void agregarOActualizarArticulo(fila &f, articulo *art){
-    for (int i=0;i<10-1;i++){
+fila agregarOActualizarArticulo(fila &f){
+   fila filaAux;   //Fila aux
+    while(!f.estaVacia()){
+        articulo actual=f.verPrimero(); //Struct articulo para comparar
+        f.suprimir();
+        bool encontrado=false;
+        fila filaTemporal;
+        while(!f.estaVacia()){
+            articulo siguiente=f.verPrimero();  //Struct articulo
+            f.suprimir();
+            if(strcmp(actual.descripcion,siguiente.descripcion)==0){
+                actual.cantidad+=siguiente.cantidad;
+                encontrado=true;
+                cout<<"Elemnto "<<actual.descripcion<<" repetido."<<endl;
+            }else{
+                filaTemporal.insertar(siguiente);
+            }
+        }
+        if(!encontrado){
+            filaAux.insertar(actual);
+        }else{
+            filaAux.insertar(actual);
+        }
+        while(!filaTemporal.estaVacia()){
+            f.insertar(filaTemporal.verPrimero());
+            filaTemporal.suprimir();
+        }
+    }
+    while(!filaAux.estaVacia()){
+        f.insertar(filaAux.verPrimero());
+        filaAux.suprimir();
+    }
+    return f;
+      /*for (int i=0;i<10-1;i++){
         for (int j=i+1;j<10;j++){
             if (strcmp(art[i].descripcion, art[j].descripcion) == 0) {
                 art[i].cantidad+=art[j].cantidad; // Sumar las cantidades
@@ -70,7 +102,7 @@ void agregarOActualizarArticulo(fila &f, articulo *art){
         if (art[i].cantidad!=0){
             f.insertar(art[i]);
         }
-    }
+    }*/
 }
 
 
