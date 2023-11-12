@@ -13,7 +13,7 @@ programa*/
 
 #include <iostream>
 #include <cstring>
-#include "ColaLibreria.h"
+#include "ColaLibreriaV2String.h"
 using namespace std;
 
 //DECLARACIONES

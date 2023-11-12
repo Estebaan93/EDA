@@ -6,6 +6,7 @@ debe solicitar sus datos, y agregarlos. B-Habrá un procedimiento para mostrar l
 por orden de salida de los vehículos. */
 
 #include <iostream>
+#include <string>
 #include "PilaLibreria.h"
 //const int MAX1=10;
 using namespace std;
@@ -16,7 +17,7 @@ const float valor=100;  //VALOR HORA
 ///DECLARACIONES DE FUNCIONES
 void cargarPilaCochera(pila &);
 void mostrarPila(pila);
-pila sacandoAutoPorOrdenDeSalida(pila);
+void sacandoAutoPorOrdenDeSalida(pila);
 
 
 int main(){
@@ -36,21 +37,27 @@ int main(){
     switch(opc){
     case 1:
         cargarPilaCochera(cochera1);
+        cout<<"Se cargaron los autos en la cochera 1.\n"<<endl;
         break;
     case 2:
         cargarPilaCochera(cochera2);
+        cout<<"Se cargaron los autos en la cochera 2.\n"<<endl;
         break;
     case 3:
         mostrarPila(cochera1);
+        cout<<endl;
         break;
     case 4:
         mostrarPila(cochera2);
+        cout<<endl;
         break;
     case 5:
         sacandoAutoPorOrdenDeSalida(cochera1);
+        cout<<endl;
         break;
     case 6:
-
+        sacandoAutoPorOrdenDeSalida(cochera2);
+        cout<<endl;
         break;
     case 7:
         break;
@@ -70,15 +77,19 @@ return 0;
 void cargarPilaCochera(pila &cochera){
     Auto autoX;
     if(!cochera.pilaLlena()){
-        cout<<"Ingrese el propietario: ";
+        cochera.push({"ABC","Esteban","07","18"});
+        cochera.push({"123","Nicolas","09","20"});
+        cochera.push({"BMW","Martina","14","15"});
+        cochera.push({"FFF","Maricel","16","23"});
+        /*cout<<"Ingrese el propietario: ";
         cin>>autoX.propietario;
         cout<<"Placa del vehiculo: ";
         cin>>autoX.placa;
-        cout<<"Hora de ingreso (Ej. 21.40): ";
+        cout<<"Hora de ingreso (Ej. 21:40): ";
         cin>>autoX.horaEntrada;
-        cout<<"Hora de salida (Ej. 21.40): ";
+        cout<<"Hora de salida (Ej. 21:40): ";
         cin>>autoX.horaSalida;
-        cochera.push(autoX);
+        cochera.push(autoX);*/
     }else{
         cout<<"La cochera esta llena."<<endl;
     }
@@ -86,40 +97,30 @@ void cargarPilaCochera(pila &cochera){
 
 void mostrarPila(pila pilaX){
     cout<<"Mostramos los espacios ocupados: "<<endl;
+    int i=1;
     while(!pilaX.pilaVacia()){
-        cout<<"["<<pilaX.getTope()+1<<"]- Entrada: "<<pilaX.verTope().horaEntrada<<" Hs- "<<pilaX.verTope().propietario<<", Dominio: "<<pilaX.verTope().placa<<"."<<endl;
+        cout<<"["<<pilaX.getTope()+1<<"]-: "<<pilaX.verTope().propietario<<"- entrada: "<<pilaX.verTope().horaEntrada<<"hs- salida: "<<pilaX.verTope().horaSalida<<"hs- dominio: "<<pilaX.verTope().placa<<".-["<<i++<<"]"<<endl;
         pilaX.pop();
     }
-    cout<<endl;
 }
 
-pila sacandoAutoPorOrdenDeSalida(pila cochera){
+void sacandoAutoPorOrdenDeSalida(pila cochera){
     pila cocheraAux;
-    while(!cochera.pilaVacia()){
-        Auto autoAux=cochera.verTope();
+     while(!cochera.pilaVacia()){
+        Auto temp=cochera.verTope();
         cochera.pop();
-        bool encontrado;
-        pila tempo;
 
-        while(!cochera.pilaVacia()){
-            Auto siguiente=cochera.verTope();
+        // Insertar temp en la posición correcta en la pilaOrdenada
+        while(!cochera.pilaVacia()&&temp.horaSalida<cochera.verTope().horaSalida){
+            cocheraAux.push(cochera.verTope());
             cochera.pop();
-            if(autoAux.horaEntrada<siguiente.horaEntrada){
-                encontrado=true;
-                tempo.push(siguiente);
-            }else{
-
-            }
-
         }
-
-        while(!tempo.pilaVacia()){
-            cocheraAux.push(tempo.verTope());
-            tempo.pop();
-        }
-
+        cocheraAux.push(temp);
     }
-    while(!cocheraAux.pilaVacia()){
-        cout<<"Hora: "<<cocheraAux.verTope().horaEntrada<<endl;
+    cochera=cocheraAux;
+    int i=1;
+    while(!cochera.pilaVacia()){
+        cout<<"["<<cochera.getTope()+1<<"]-: "<<cochera.verTope().propietario<<"- salida: "<<cochera.verTope().horaSalida<<"hs- dominio: "<<cochera.verTope().placa<<"."<<"["<<i++<<"]"<<endl;
+        cochera.pop();
     }
 }

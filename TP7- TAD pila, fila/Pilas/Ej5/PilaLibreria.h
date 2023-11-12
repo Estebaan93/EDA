@@ -1,13 +1,13 @@
 /*PILA STRUCT PARA UTILIZAR CON LA LIBRERIA*/
 #include <iostream>
 using namespace std;
-const int MAX=10;
+const int MAX=4;
 
 struct Auto{
     string placa;
     string propietario;
-    float horaEntrada;
-    float horaSalida;
+    string horaEntrada;
+    string horaSalida;
 };
 
 struct pila{

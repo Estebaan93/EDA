@@ -13,7 +13,7 @@ programa*/
 
 #include <iostream>
 #include <cstring>
-#include "ColaLibreria.h"
+#include "ColaLibreriaChar.h"
 using namespace std;
 
 //DECLARACIONES
@@ -69,7 +69,7 @@ fila agregarOActualizarArticulo(fila &f){
             if(strcmp(actual.descripcion,siguiente.descripcion)==0){
                 actual.cantidad+=siguiente.cantidad;
                 encontrado=true;
-                cout<<"Elemnto "<<actual.descripcion<<" repetido."<<endl;
+                cout<<"Elemento "<<actual.descripcion<<" repetido."<<endl;
             }else{
                 filaTemporal.insertar(siguiente);
             }
@@ -89,20 +89,6 @@ fila agregarOActualizarArticulo(fila &f){
         filaAux.suprimir();
     }
     return f;
-      /*for (int i=0;i<10-1;i++){
-        for (int j=i+1;j<10;j++){
-            if (strcmp(art[i].descripcion, art[j].descripcion) == 0) {
-                art[i].cantidad+=art[j].cantidad; // Sumar las cantidades
-                art[j].cantidad=0; // Marcar la cantidad como 0 para evitar contarla de nuevo
-            }
-        }
-    }
-
-    for (int i=0;i<10;i++){
-        if (art[i].cantidad!=0){
-            f.insertar(art[i]);
-        }
-    }*/
 }
 
 
