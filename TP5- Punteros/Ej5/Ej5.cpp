@@ -6,28 +6,14 @@ interactuar con el arreglo. */
 #include <stdlib.h>     //Llamamos a las funciones malloc y calloc para el array dinamico
 using namespace std;
 
-
-int agregar(int *arr, int n, int tam);      //Declaracion de la funcion
-int imprimir(int *arr);
+int agregar(int *&, int , int &);      //Declaracion de la funcion
+void imprimir(int *, int);
 
 int main(){
-    int cant=3, tam, *arreglo, *arreglo2, *arr, opc, n;
-    bool salir;
-    ///malloc recibe un parametro. La cantidad * el tamaño del numero (int, double, flota, struc, etc)
-    ///se debe castear al tipo de dato, este caso un puntero.
-    arreglo=(int *) malloc(cant*sizeof(int));
-    arreglo[0]=1;   //Ya tengo reservado el espacio para mi arreglo
-    cout<<"PRUEBAS: "<<endl;
-    cout<<"Arreglo 1, en la posicion 0 - malloc: "<<arreglo[0]<<endl;
+    int *arreglo=nullptr;       //Puntero al arreglo
+    int tam=0;      //Tamaño inicial del arreglo
+    int opc, n;
 
-    ///calloc recibe 2 parametos. La cantidad, y el tipo de dato. Me inicializa cada uno de los espacio en el arreglo en 0.
-    arreglo2=(int *)calloc(cant, sizeof(int));
-    arreglo2[0]=3;
-    cout<<"Arreglo 2, en la posicion 0 - calloc: "<<arreglo2[0]<<endl;
-    cout<<"Arreglo 2, en la posicion 1 - calloc, me inicializa los espacios en 0: "<<arreglo2[1]<<endl;
-
-    tam=1;      //Tamaño inicila para el arreglo
-    //arr=(int*)malloc(tam*sizeof(int));
     do{
     cout<<"1. Agregar numeros"<<endl;
     cout<<"2. Imprimir array"<<endl;
@@ -37,28 +23,50 @@ int main(){
         case 1:
             cout<<"Ingrese un numero: ";
             cin>>n;
-            agregar(arr, n, tam);
+            agregar(arreglo, n, tam);
             break;
         case 2:
-
+            imprimir(arreglo, tam);
             break;
         case 3:
-            salir=true;
             break;
+        }
+    }while(opc!=3);
 
-    }
-    }while(salir);
+    //Libera la memoria en el arreglo dinamico al final
+    delete[] arreglo;
 
     cout<<endl;
     system("pause");
 return 0;
 }
-int agregar(int *arr, int n, int tam){
-    //int tamaArray=sizeof(arr)
-    for(int i=0;i<sizeof(arr)/sizeof(arr[0]);i++){
-        //arr[i]=malloc(tam*sizeof(int));
-        arr[i]=n;
-    }
+
+///DEFINICIONES
+int agregar(int *&arreglo, int n, int &tam){
+   //Incrementamos el tamaño del arreglo
+   int *nuevoArreglo=new int(tam+1);
+
+   //Copiamos al nuevo arreglo
+   for(int i=0;i<tam;i++){
+        nuevoArreglo[i]=arreglo[i];
+   }
+    // Agrega el nuevo elemento al final del arreglo
+    nuevoArreglo[tam]=n;
+
+    // Libera la memoria del antiguo arreglo
+    delete[]arreglo;
+
+    // Asigna el nuevo arreglo al puntero original
+    arreglo=nuevoArreglo;
+
+    // Incrementa el tamaño
+    tam++;
+    return *arreglo;
 }
 
-
+void imprimir(int *arreglo, int tam){
+    cout<<"Imprimimos: "<<endl;
+    for(int i=0;i<tam;i++){
+        cout<<"["<<arreglo[i]<<"]"<<endl;
+    }
+}

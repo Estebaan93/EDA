@@ -19,7 +19,7 @@ using namespace std;
 
 
 struct picture_info{
-    char name[SIZENAME];
+    char name[SIZE_NAME];
     int date_time;
 }pictures[SIZE];      //  Punteros a picture
 
@@ -27,6 +27,8 @@ struct picture_info{
 
 int main(){
     struct picture_info * punteros[SIZE];       //Punteros de punteros a struct
+    cout<<sizeof(punteros)<<" byte"<<endl;
+
     for(int i=0; i<SIZE; i++){
         punteros[i]=&pictures[i];           //punteros me apunta a la direccion de pictures[i] en la posicion
 

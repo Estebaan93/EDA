@@ -28,5 +28,6 @@ int main()
     Eigen::MatrixXd predictions = net.predict(input);
     std::cout << "Predictions: " << std::endl << predictions << std::endl;
 
+    cout<<endl;
     return 0;
 }
