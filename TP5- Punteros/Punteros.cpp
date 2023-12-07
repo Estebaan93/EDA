@@ -11,7 +11,9 @@ cout<<"B vale: "<<b<<", C vale: "<<c<<endl;
 a=&b;   //Guarda la direccion de b en a
 c=*a;     //c vale 2
 
-cout<<"A vale: "<<a<<", C vale: "<<c<<endl;
+cout<<"Direccion de A: "<<a<<", C vale: "<<c<<endl;
+cout<<"Valor de A: "<<*a<<endl;
+
 cout<<endl;
 system("pause");
 return 0;
