@@ -6,9 +6,9 @@ const int MAX=10;
 
 struct Testigo{
     string nombre;
+    string genero;
     int edad;
     int dni;
-    string genero;
     string declaraciones[2];
 };
 

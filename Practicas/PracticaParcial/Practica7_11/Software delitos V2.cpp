@@ -4,20 +4,21 @@ using namespace std;
 
 
 ///DECLARACIONES
-void agregarTestigo(cola&);
+void agregarTestigo(fila &);
+void eliminarTestigo(fila &);
 
 
 int main(){
-    Fila cola;
+    fila cola;
     int opc;
 
     // Testigos harcodeados
-    Testigo testigo1 = {"Juan Miranda ", "Masculino", 30, 12345678, {"", ""}, false, false};
-    Testigo testigo2 = {"Maria Cepeda ", "Femenino", 25, 27654321, {"", ""}, false, false};
-    Testigo testigo3 = {"Camila Lopez ", "Femenino", 40, 2673456, {"", ""}, false, false};
-    Testigo testigo4 = {"Ceferino Gomez ", "Masculino", 50, 8345678, {"", ""}, false, false};
-    Testigo testigo5 = {" kim Soo Hyum ", "Masculino", 30, 3245678, {"", ""}, false, false};
-    Testigo testigo6 = {"Lee Min ", "Masculino", 30, 3845678, {"", ""}, false, false};
+    Testigo testigo1 = {"Juan Miranda ", "Masculino", 30, 12345678, {"", ""}};
+    Testigo testigo2 = {"Maria Cepeda ", "Femenino", 25, 27654321, {"", ""}};
+    Testigo testigo3 = {"Camila Lopez ", "Femenino", 40, 2673456, {"", ""}};
+    Testigo testigo4 = {"Ceferino Gomez ", "Masculino", 50, 8345678, {"", ""}};
+    Testigo testigo5 = {" kim Soo Hyum ", "Masculino", 30, 3245678, {"", ""}};
+    Testigo testigo6 = {"Lee Min ", "Masculino", 30, 3845678, {"", ""}};
 
     // Inserto testigos harcodeados en la cola
     cola.insertar(testigo1);
@@ -45,9 +46,9 @@ int main(){
         cout << "*******************************************************" << endl;
 
         cout << "Ingrese la opcion deseada: ";
-        cin >> opcion;
+        cin >> opc;
 
-        switch (opcion) {
+        switch (opc) {
             case 1:
                 agregarTestigo(cola);
                 break;
@@ -78,4 +79,24 @@ int main(){
 
     system("pause");
 return 0;
+}
+
+///DEFINICIONES
+void agregarTestigo(fila &cola){
+    Testigo t;
+    cout<<"Ingrese el nombre del testigo: ";
+    cin.ignore();
+    getline(cin,t.nombre);
+    cout<<"Ingrese el genero del testigo: ";
+    getline(cin,t.genero);
+    cout<<"Ingrese la edad del testigo: ";
+    cin>>t.edad;
+    cout<<"Ingrese el DNI del testigo: ";
+    cin>>t.dni;
+
+}
+
+void eliminarTestigo(fila &cola){
+
+
 }
